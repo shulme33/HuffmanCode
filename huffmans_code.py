@@ -60,7 +60,7 @@ def get_encoded_values(node, current_code):
         get_encoded_values(node.child_right, current_code+"1")
 
 
-text_to_compress = "hello there everyone how are you doing? it is good to see everyone and I hope that you are all well"
+text_to_compress = input("Please enter a string to compress: ")
 counter = Counter(text_to_compress)         # Count up the occurrences of each letter
 count_list = list(counter.items())          # Convert our data from a Counter() to a list of tuples
 count_list.sort(key=lambda tup: tup[1])     # Sort the list from smallest to largest based on second value in the tuple
@@ -71,6 +71,9 @@ for item in count_list:                     # Create list of nodes
 
 while len(node_list) > 1:                   # Build Min Heap
     combine_nodes(node_list, 0, 1)
+
+print("\nOriginal String:")
+print(text_to_compress)
 
 print("\nMin Heap Created. \nEncoding to Binary...")
 encoding = {}                               # Dictionary for encoded values
